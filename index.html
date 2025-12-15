@@ -53,14 +53,16 @@
         <option value="dogs">Hundar</option>
       </select>
     </div>
-    <a class="quiz-link" id="type-quiz-link" href="#">Skrifa nafnið</a>
-    <a class="quiz-link" id="mc-quiz-link" href="#">Fjölvalsspurningar</a>
+    <a class="quiz-link" id="type-quiz-link" href="#">Skrifaðu nafnið</a>
+    <a class="quiz-link" id="mc-quiz-link" href="#">Veldu nafn</a>
+    <a class="quiz-link" id="select-image-link" href="#">Veldu myndina</a>
   </div>
   <script>
     function updateLinks() {
       const category = document.getElementById('category-select').value;
       document.getElementById('type-quiz-link').href = `type-quiz.html?category=${category}`;
       document.getElementById('mc-quiz-link').href = `multiple-choice.html?category=${category}`;
+      document.getElementById('select-image-link').href = `select-image.html?category=${category}`;
     }
     document.getElementById('category-select').addEventListener('change', updateLinks);
     updateLinks();

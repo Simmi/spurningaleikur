@@ -1,19 +1,20 @@
 {
   "brawlstars": {
     "displayName": "Brawl Stars",
-    "typeQuizTitle": "Brawl Stars: Skrifaðu nafnið",
-    "mcQuizTitle": "Hver er þetta?",
+    "typeQuizTitle": "Skrifaðu nafnið",
+    "mcQuizTitle": "Hvaða heitir þessi 'Brawler'?",
+    "selectImageQuizTitle": "Hvaða Brawler er ...",
     "inputPlaceholder": "Sláðu inn nafn brawlers",
     "imgAlt": "Brawler mynd",
     "backLink": "Til baka í val á spurningakeppni"
   },
   "dogs": {
     "displayName": "Hundar",
-    "typeQuizTitle": "Hundar: Skrifaðu nafnið",
-    "mcQuizTitle": "Hvaða hundur er þetta?",
+    "typeQuizTitle": "Skrifaðu nafnið",
+    "mcQuizTitle": "Hvaða heitir þessi hundur?",
+    "selectImageQuizTitle": "Hvaða hundur er ...",
     "inputPlaceholder": "Sláðu inn nafn hundsins",
     "imgAlt": "Mynd af hundi",
     "backLink": "Til baka í val á spurningakeppni"
   }
 }
-

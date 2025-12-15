@@ -164,12 +164,17 @@
       fetch('categories.json')
         .then(response => response.json())
         .then(categories => {
-          categoryConfig = categories[category] || categories['brawlstars'];
+          // Use the first category if the requested one is missing
+          if (!categories[category]) {
+            category = Object.keys(categories)[0];
+          }
+          categoryConfig = categories[category];
           document.getElementById('quiz-title').textContent = categoryConfig.selectImageQuizTitle || 'Veldu myndina';
           document.getElementById('back-link').textContent = '← ' + (categoryConfig.backLink || 'Til baka í val á spurningakeppni');
           document.getElementById('back-link').href = 'index.html';
-          // Now fetch data for the category
-          fetch((category === 'dogs' ? 'dogs.json' : category === 'flags' ? 'flags.json' : 'brawlers.json'))
+          // Use the key to determine the data file
+          let dataFile = category + '.json';
+          fetch(dataFile)
             .then(response => response.json())
             .then(data => {
               items = data;

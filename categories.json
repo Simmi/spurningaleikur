@@ -6,7 +6,8 @@
     "selectImageQuizTitle": "Hvaða Brawler er ...",
     "inputPlaceholder": "Sláðu inn nafn brawlers",
     "imgAlt": "Brawler mynd",
-    "backLink": "Til baka í val á spurningakeppni"
+    "backLink": "Til baka í val á spurningakeppni",
+    "key": "brawlstars"
   },
   "dogs": {
     "displayName": "Hundar",
@@ -15,7 +16,8 @@
     "selectImageQuizTitle": "Hvaða hundur er ...",
     "inputPlaceholder": "Sláðu inn nafn hundsins",
     "imgAlt": "Mynd af hundi",
-    "backLink": "Til baka í val á spurningakeppni"
+    "backLink": "Til baka í val á spurningakeppni",
+    "key": "dogs"
   },
   "flags": {
     "displayName": "Fánar ríkja",
@@ -24,6 +26,7 @@
     "selectImageQuizTitle": "Hvaða fána á ...",
     "inputPlaceholder": "Sláðu inn nafn landsins",
     "imgAlt": "Mynd af fána",
-    "backLink": "Til baka í val á spurningakeppni"
+    "backLink": "Til baka í val á spurningakeppni",
+    "key": "flags"
   }
 }

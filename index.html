@@ -49,9 +49,6 @@
     <div id="category-select-area">
       <label for="category-select">Veldu flokk:</label>
       <select id="category-select">
-        <option value="brawlstars">Brawl Stars</option>
-        <option value="dogs">Hundar</option>
-        <option value="flags">Fánar ríkja</option>
       </select>
     </div>
     <a class="quiz-link" id="type-quiz-link" href="#">Skrifaðu nafnið</a>
@@ -59,11 +56,35 @@
     <a class="quiz-link" id="select-image-link" href="#">Veldu myndina</a>
   </div>
   <script>
+  // Remove hardcoded options and populate dynamically
+  fetch('categories.json')
+    .then(response => response.json())
+    .then(categories => {
+      const select = document.getElementById('category-select');
+      select.innerHTML = '';
+      Object.entries(categories)
+        .forEach(([key, cat]) => {
+          const option = document.createElement('option');
+          option.value = key;
+          option.textContent = cat.displayName;
+          select.appendChild(option);
+        });
+      updateLinks();
+    });
+
     function updateLinks() {
       const category = document.getElementById('category-select').value;
-      document.getElementById('type-quiz-link').href = `type-quiz.html?category=${category}`;
-      document.getElementById('mc-quiz-link').href = `multiple-choice.html?category=${category}`;
-      document.getElementById('select-image-link').href = `select-image.html?category=${category}`;
+      fetch('categories.json')
+        .then(response => response.json())
+        .then(categories => {
+          const cat = categories[category];
+          document.getElementById('type-quiz-link').href = `type-quiz.html?category=${category}`;
+          //document.getElementById('type-quiz-link').textContent = cat.typeQuizTitle;
+          document.getElementById('mc-quiz-link').href = `multiple-choice.html?category=${category}`;
+          //document.getElementById('mc-quiz-link').textContent = cat.mcQuizTitle;
+          document.getElementById('select-image-link').href = `select-image.html?category=${category}`;
+          //document.getElementById('select-image-link').textContent = cat.selectImageQuizTitle;
+        });
     }
     document.getElementById('category-select').addEventListener('change', updateLinks);
     updateLinks();

@@ -51,7 +51,7 @@
   </div>
   <script>
     let items = [];
-    const QUESTION_COUNT = 5;
+    const QUESTION_COUNT = 10;
     let questionOrder = [];
     let questionNumber = 1;
     let score = 0;
@@ -104,6 +104,13 @@
         btn.onclick = () => checkAnswer(choice.name, btn, choicesDiv, items[correctIdx].name);
         choicesDiv.appendChild(btn);
       });
+      // Remove focus from all buttons after rendering
+      setTimeout(() => {
+        const active = document.activeElement;
+        if (active && active.tagName === 'BUTTON' && active.classList.contains('choice-img-btn')) {
+          active.blur();
+        }
+      }, 0);
     }
 
     function showSummary() {
@@ -162,7 +169,7 @@
           document.getElementById('back-link').textContent = '← ' + (categoryConfig.backLink || 'Til baka í val á spurningakeppni');
           document.getElementById('back-link').href = 'index.html';
           // Now fetch data for the category
-          fetch((category === 'dogs' ? 'dogs.json' : 'brawlers.json'))
+          fetch((category === 'dogs' ? 'dogs.json' : category === 'flags' ? 'flags.json' : 'brawlers.json'))
             .then(response => response.json())
             .then(data => {
               items = data;

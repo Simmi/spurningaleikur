@@ -84,7 +84,7 @@
           document.getElementById('back-link').textContent = '← ' + (categoryConfig.backLink || 'Til baka í val á spurningakeppni');
           document.getElementById('back-link').href = 'index.html';
           // Now fetch brawlers for the category
-          fetch((category === 'dogs' ? 'dogs.json' : 'brawlers.json'))
+          fetch((category === 'dogs' ? 'dogs.json' : category === 'flags' ? 'flags.json' : 'brawlers.json'))
             .then(response => response.json())
             .then(data => {
               brawlers = shuffle(data);

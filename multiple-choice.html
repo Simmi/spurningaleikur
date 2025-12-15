@@ -34,7 +34,7 @@
     let brawlers = [];
     let current = 0;
     let correctIndex = 0;
-    const QUESTION_COUNT = 5;
+    const QUESTION_COUNT = 10;
     let questionOrder = [];
     let questionNumber = 1;
     let score = 0;
@@ -142,7 +142,7 @@
           document.getElementById('back-link').textContent = '← ' + (categoryConfig.backLink || 'Til baka í val á spurningakeppni');
           document.getElementById('back-link').href = 'index.html';
           // Now fetch brawlers for the category
-          fetch((category === 'dogs' ? 'dogs.json' : 'brawlers.json'))
+          fetch((category === 'dogs' ? 'dogs.json' : category === 'flags' ? 'flags.json' : 'brawlers.json'))
             .then(response => response.json())
             .then(data => {
               brawlers = data;

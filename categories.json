@@ -16,5 +16,14 @@
     "inputPlaceholder": "Sláðu inn nafn hundsins",
     "imgAlt": "Mynd af hundi",
     "backLink": "Til baka í val á spurningakeppni"
+  },
+  "flags": {
+    "displayName": "Fánar ríkja",
+    "typeQuizTitle": "Skrifaðu nafnið á landinu",
+    "mcQuizTitle": "Hvaða land á þennan fána?",
+    "selectImageQuizTitle": "Hvaða fána á ...",
+    "inputPlaceholder": "Sláðu inn nafn landsins",
+    "imgAlt": "Mynd af fána",
+    "backLink": "Til baka í val á spurningakeppni"
   }
 }

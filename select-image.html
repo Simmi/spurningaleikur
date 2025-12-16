@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Veldu myndina</title>
-  <style>
+  <style id="dynamic-theme-style">
     body { font-family: Arial, sans-serif; background: #f7f7f7; margin: 0; padding: 0; }
     .container { max-width: 500px; margin: 40px auto; background: #fff; padding: 24px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: relative; }
     .counter { position: absolute; top: 24px; right: 32px; font-size: 1.1rem; color: #555; font-weight: bold; }
@@ -58,10 +58,39 @@
     let categoryConfig = {};
     let category = 'brawlstars';
 
+    function applyThemeColor(themeColor) {
+      if (!themeColor) return;
+      const style = document.getElementById('dynamic-theme-style');
+      style.innerHTML = style.innerHTML.replace(/#0074d9/g, themeColor);
+    }
+
     function getCategoryFromUrl() {
       const params = new URLSearchParams(window.location.search);
       return params.get('category') || 'brawlstars';
     }
+    category = getCategoryFromUrl();
+    fetch('categories.json')
+      .then(response => response.json())
+      .then(categories => {
+        categoryConfig = categories[category] || {};
+        if (categoryConfig.themeColor) {
+          applyThemeColor(categoryConfig.themeColor);
+        }
+        document.getElementById('quiz-title').textContent = categoryConfig.selectImageQuizTitle || 'Veldu myndina';
+        document.getElementById('back-link').textContent = '← ' + (categoryConfig.backLink || 'Til baka í val á spurningakeppni');
+        document.getElementById('back-link').href = 'index.html';
+        // Use the key to determine the data file
+        let dataFile = category + '.json';
+        fetch(dataFile)
+          .then(response => response.json())
+          .then(data => {
+            items = data;
+            restartQuiz();
+          })
+          .catch(err => {
+            document.getElementById('quiz-area').innerHTML = '<p>Tókst ekki að hlaða inn gögnum fyrir keppni.</p>';
+          });
+      });
 
     function shuffle(array) {
       for (let i = array.length - 1; i > 0; i--) {
@@ -164,11 +193,10 @@
       fetch('categories.json')
         .then(response => response.json())
         .then(categories => {
-          // Use the first category if the requested one is missing
-          if (!categories[category]) {
-            category = Object.keys(categories)[0];
+          categoryConfig = categories[category] || {};
+          if (categoryConfig.themeColor) {
+            applyThemeColor(categoryConfig.themeColor);
           }
-          categoryConfig = categories[category];
           document.getElementById('quiz-title').textContent = categoryConfig.selectImageQuizTitle || 'Veldu myndina';
           document.getElementById('back-link').textContent = '← ' + (categoryConfig.backLink || 'Til baka í val á spurningakeppni');
           document.getElementById('back-link').href = 'index.html';

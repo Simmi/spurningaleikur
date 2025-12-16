@@ -7,7 +7,9 @@
     "inputPlaceholder": "Sláðu inn nafn brawlers",
     "imgAlt": "Brawler mynd",
     "backLink": "Til baka í val á spurningakeppni",
-    "key": "brawlstars"
+    "key": "brawlstars",
+    "themeColor": "#9614ff",
+    "logoImg": "images/brawlstars/logo.png"
   },
   "dogs": {
     "displayName": "Hundar",
@@ -17,7 +19,9 @@
     "inputPlaceholder": "Sláðu inn nafn hundsins",
     "imgAlt": "Mynd af hundi",
     "backLink": "Til baka í val á spurningakeppni",
-    "key": "dogs"
+    "key": "dogs",
+    "themeColor": "#008800",
+    "logoImg": "\uD83D\uDC36"
   },
   "flags": {
     "displayName": "Fánar ríkja",
@@ -27,6 +31,9 @@
     "inputPlaceholder": "Sláðu inn nafn landsins",
     "imgAlt": "Mynd af fána",
     "backLink": "Til baka í val á spurningakeppni",
-    "key": "flags"
+    "key": "flags",
+    "themeColor": "#666666",
+    "logoImg_old": "\uD83C\uDFF4",
+    "logoImg": "\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08"
   }
 }
